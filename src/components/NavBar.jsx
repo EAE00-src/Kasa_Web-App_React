@@ -2,9 +2,8 @@ import { Link } from "react-router-dom"
 import kasaLogo from '../assets/Kasa-header.svg'
 
 
-function Header(){
+function Navigation(){
     return(
-        <header>
             <nav className="navbar">
                 <Link to={'/'}>
                     <img src={kasaLogo} alt="Kasa-logo header" /> 
@@ -14,7 +13,8 @@ function Header(){
                     <Link to={'/about'}>About</Link>
                </div>
             </nav>
-        </header>
     )
 
 }
+
+export default Navigation
