@@ -1,0 +1,16 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 4em;
+}
+.logo{
+    height: 4.25em;
+}
+.navbar-links {
+    display: flex;
+    flex-direction: row;
+    gap: 57px;
+    font-size: 34px;
+}

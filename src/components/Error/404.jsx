@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import notFound from '../../assets/404.svg'
 
 
 function Error(){
