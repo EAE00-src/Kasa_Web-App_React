@@ -1,4 +1,5 @@
 import footer from '../assets/kasa-footer.svg'
+import '../styles/Footer.css'
 
 
 function Footer(){
@@ -11,3 +12,5 @@ function Footer(){
         </footer>
     )
 }
+
+export default Footer
