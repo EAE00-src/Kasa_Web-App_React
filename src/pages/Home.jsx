@@ -1,6 +1,8 @@
 import Banner from "../components/Banner/Banner"
-import RentalCards from "../components/Cards/Property-Cards"
+import RentalCards from "../components/Cards/Rental-Cards"
 import { propertyData } from "../Data/kasa-data"
+import homeBanner from '../assets/Banner-Home.jpg'
+import '../styles/Home.scss'
 
 
 function Home(){
@@ -8,9 +10,9 @@ function Home(){
 
     return (
         <div className="kasa-home">
-            <Banner />
+            <Banner banner={homeBanner} message={'At home, everywhere, and anywhere'} />
     
-            <div className="property-gallery">
+            <section className="property-gallery">
                 {propertyData.map((property) => (
                     <RentalCards 
                     key={property.id}
@@ -19,7 +21,7 @@ function Home(){
                     title={property.title}
                     />
                 ))}
-            </div>
+            </section>
         </div>
     
     )

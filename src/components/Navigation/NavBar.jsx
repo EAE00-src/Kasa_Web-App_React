@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import kasaLogo from '../assets/Kasa-header.svg'
-import '../styles/Navbar.css'
+import kasaLogo from '../../assets/Kasa-header.svg'
+import './NavBar.scss'
 
 
 function Navigation(){

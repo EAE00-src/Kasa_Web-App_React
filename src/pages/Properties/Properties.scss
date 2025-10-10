@@ -1,0 +1,26 @@
+@use '../../styles/mixins' as *;
+
+
+.property-body{
+  @include flexDisplay($direction: column, $align: center,);
+  max-width: 1240px;
+}
+.carousel-wrapper {
+  //position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 400px; 
+}
+
+.carousel-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-image {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

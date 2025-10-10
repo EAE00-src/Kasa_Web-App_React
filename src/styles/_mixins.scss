@@ -1,0 +1,57 @@
+@mixin flexDisplay(
+  $direction: null,
+  $wrap: null,
+  $justify: null,
+  $align: null,
+  $alignContent: null,
+  $inline: false
+) {
+  display: if($inline, inline-flex, flex);
+
+  @if $direction {
+    flex-direction: $direction;
+  }
+
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+
+  @if $justify {
+    justify-content: $justify;
+  }
+
+  @if $align {
+    align-items: $align;
+  }
+
+  @if $alignContent {
+    align-content: $alignContent;
+  }
+}
+
+
+@mixin resize($w: null, $h: null, $minW: null, $maxW: null, $minH: null, $maxH: null) {
+  @if $w != null {
+    width: $w;
+  }
+
+  @if $h != null {
+    height: $h;
+  }
+
+  @if $minW != null {
+    min-width: $minW;
+  }
+
+  @if $maxW != null {
+    max-width: $maxW;
+  }
+
+  @if $minH != null {
+    min-height: $minH;
+  }
+
+  @if $maxH != null {
+    max-height: $maxH;
+  }
+}

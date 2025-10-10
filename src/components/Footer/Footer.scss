@@ -6,7 +6,10 @@ footer {
     height: 13.06em;
     width: 100%;
     background-color: black;
-}
-footer p {
-    color: white;
+
+    p{
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+    }
 }

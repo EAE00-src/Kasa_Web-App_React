@@ -7,6 +7,7 @@ import nextArrow from '../../assets/next-arrow.svg'
 import Collapse from '../../components/Collapse/Collapse'
 import activeStar from '../../assets/active-star.svg'
 import inactiveStar from '../../assets/inactive-star.svg'
+import './Properties.scss'
 
 
 
@@ -22,16 +23,47 @@ function PropertyDetails(){
     //stars will be used to match with the rating in order to display the correct amount of active rating stars
     const stars = [1, 2, 3, 4, 5];
 
-    const [currentIndex, setCurrentIndex] = useState
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    function nextImg(){
+        setCurrentIndex((currentIdx) =>
+            currentIdx === pictures.length - 1 ? 0 : currentIdx + 1
+            //if the currentIdx is equal to the length of the pictures array,
+                //the currentIdx will reset to 0 before being able to increment again.
+            //pictures.length - 1 is there since the currentIdx is counting up from the 0-index within the array
+        );
+    };
+
+        function prevImg(){
+        setCurrentIndex((currentIdx) =>
+            currentIdx === 0 ? pictures.length - 1 : currentIdx - 1
+            //if the currentIdx is equal to exactly 0, 
+                //set the currentIdx to the pictures.length - 1 value before decrementing the currentIdx with - 1
+        );
+    };
 
     return(
 
-        <div className="property-body">
+        <section className="property-body">
             <div className="property-carousel">
-                <img className="carousel-img" src={pictures[0]} alt='{title}' />
-                <p>{title}</p>
-                <button><img src={prevArrow} alt='Previous image arrow' /></button>
-                <button><img src={nextArrow} alt='Next image arrow' /></button>
+                <div className="carousel-wrapper">
+                    <div className="carousel-slider" style={{transform: `translateX(-${currentIndex * 100}%)`,}}>
+                        {pictures.map((src, index) =>(
+                            <img key={index} src={src} alt={`Slide ${index + 1}`} className="carousel-image" loading='lazy' />
+                        ))}
+                    </div>
+                </div>
+
+                    <div className='carousel-counter'>
+                        {currentIndex + 1} / {pictures.length}
+                    </div>
+
+                <button className='prev-img' onClick={prevImg}>
+                    <img src={prevArrow} alt='Previous image arrow' />
+                </button>
+                <button className='next-img' onClick={nextImg}>
+                    <img src={nextArrow} alt='Next image arrow' />
+                </button>
             </div>
             <div className="property-pg-title">
             <h3>{title}</h3>
@@ -69,7 +101,7 @@ function PropertyDetails(){
                 />
             </div>
 
-        </div>
+        </section>
     )
 }
 export default PropertyDetails

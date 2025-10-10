@@ -1,11 +1,14 @@
-import kasaBanner from '../../assets/Banner-Home.jpg'
+import { useLocation } from 'react-router-dom'
+import './Banner.scss'
 
+function Banner({message}){
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
+    const bannerSwap = isHomePage ? 'home-banner' : 'about-banner';
 
-function Banner(){
     return(
-        <div className="banner">
-            <img className="banner-img" src={kasaBanner} />
-            <span id='home-banner-msg'>At home, everywhere, and anywhere</span>
+        <div className={`banner ${bannerSwap}`}>
+            <span id='home-banner-msg'>{message}</span>
         </div>
     )
 }

@@ -1,5 +1,5 @@
-import footer from '../assets/kasa-footer.svg'
-import '../styles/Footer.css'
+import footer from '../../assets/kasa-footer.svg'
+import './Footer.scss'
 
 
 function Footer(){

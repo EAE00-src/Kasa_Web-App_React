@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import notFound from '../../assets/404.svg'
-import '../../styles/404.css'
+import './404.scss'
 
 
 function Error(){

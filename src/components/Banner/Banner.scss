@@ -1,0 +1,45 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.banner{
+    @include flexDisplay($align: center, $justify: center);
+    width: 1240px;
+    height: 223px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    color: $component-textcolor;
+    
+
+    //Overlay for darkening the bg-image without affecting the text
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 25px;
+        mix-blend-mode: darken;
+        background: rgba(0,0,0, 0.4);
+        z-index: 1;
+    }
+
+    span{
+        position: relative;
+        z-index: 2;
+        font-size: 3rem;
+        font-weight: 700;
+    }
+    
+    
+    &.home-banner {
+        background-image: url('../../assets/Banner-Home.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    &.about-banner {
+        background-image: url('../../assets/Kasa-about.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+
+}

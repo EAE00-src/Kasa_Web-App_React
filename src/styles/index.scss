@@ -1,0 +1,15 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+*{
+    font-family: $global-font;
+}
+body{
+    @include flexDisplay($direction: column);
+    max-width: 1440px;
+    #root{
+        @include flexDisplay($direction: column, $align: center);
+        padding-top: 45px;
+        gap: 50px;
+    }
+}

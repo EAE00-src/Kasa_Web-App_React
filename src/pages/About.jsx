@@ -1,5 +1,6 @@
+import Banner from '../components/Banner/Banner'
+import Collapse from '../components/Collapse/Collapse'
 import aboutBanner from '../assets/Kasa-about.jpg'
-import collapseArrow from '../assets/about-collapse-arrow.svg'
 
 function About(){
 
@@ -7,25 +8,13 @@ function About(){
     return (
     <div className="about-body">
         <div className="about-banner">
-            <img src={aboutBanner} alt={title} />
+            <Banner banner={aboutBanner} message={''} />
         </div>
         <div className="about-values">
-            <div className='values'>
-            <h3>Reliability</h3>
-            <button><img src={collapseArrow} alt='Dropdown arrow' /></button>
-            </div>
-            <div className='values'>
-            <h3>Respect</h3>
-            <button><img src={collapseArrow} alt='Dropdown arrow' /></button>
-            </div>
-            <div className='values'>
-            <h3>Service</h3>
-            <button><img src={collapseArrow} alt='Dropdown arrow' /></button>
-            </div>
-            <div className='values'>
-            <h3>Security</h3>
-            <button><img src={collapseArrow} alt='Dropdown arrow' /></button>
-            </div>
+            <Collapse label="Reliability" />
+            <Collapse label="Respect" />
+            <Collapse label="Service" />
+            <Collapse label="Security" />
         </div>
     
     </div>
