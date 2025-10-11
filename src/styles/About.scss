@@ -1,0 +1,14 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+.about-body{
+    @include flexDisplay($direction: column, $align: center);
+    @include resize($w: 100%, $maxW: 1240px);
+    gap: 30px;
+
+    .about-values{
+        @include flexDisplay($direction: column);
+        @include resize($w: 100%, $maxW: 1240px);
+        gap: 30px;
+    }
+}

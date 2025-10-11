@@ -1,0 +1,68 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+// Main Collapse Block
+.collapse {
+    @include resize($w: 82.5%, $maxW: 1023px);
+
+  border-radius: 5px;
+  background-color: $primary-kasacolor;
+  color: $component-textcolor;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  // Header (top bar)
+  .collapse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 15px;
+    cursor: pointer;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .arrow-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+
+      img {
+        @include resize($w: 20px, $h: auto);
+        transform: rotate(0deg);
+      }
+
+      &.open img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // Dropdown content (when open)
+  .details {
+    padding: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: $bg-color;
+    color: black;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

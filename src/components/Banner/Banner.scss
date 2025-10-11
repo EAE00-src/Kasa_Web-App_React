@@ -3,8 +3,7 @@
 
 .banner{
     @include flexDisplay($align: center, $justify: center);
-    width: 1240px;
-    height: 223px;
+    @include resize($w: 100%, $h: 223px, $maxW: 1240px, $maxH: 223px);
     border-radius: 25px;
     overflow: hidden;
     position: relative;

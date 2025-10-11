@@ -1,26 +1,167 @@
 @use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
 
 
 .property-body{
   @include flexDisplay($direction: column, $align: center,);
-  max-width: 1240px;
-}
-.carousel-wrapper {
-  //position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: 400px; 
-}
+  @include resize($w: 100%, $maxW: 1240px);
+  margin: auto;
+  padding-top: 45px;
+  gap: 50px;
+    //Property Carousel
+    .property-carousel {
+      position: relative;
+      @include resize($w: 100%, $h: 415px);
 
-.carousel-slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-  height: 100%;
-}
+      .carousel-wrapper {
+        @include resize($w: 100%, $h: 100%);
+        overflow: hidden;
+        border-radius: 25px;
+      }
 
-.carousel-image {
-  min-width: 100%;
-  height: 100%;
-  object-fit: cover;
+      .carousel-slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        @include resize($w: 100%, $h: 100%);
+      }
+
+      .carousel-image {
+        @include resize($minW: 100%, $h: 100%);
+        object-fit: cover;
+      }
+
+      .prev-img,
+      .next-img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 2;
+
+        img {
+          width: 32px;
+          height: auto;
+        }
+      }
+
+      .prev-img {
+        left: 20px;
+      }
+
+      .next-img {
+        right: 20px;
+      }
+
+      .carousel-counter {
+        position: absolute;
+        bottom: 10px;
+        right: 50%;
+        color: white;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 4px 10px;
+        border-radius: 5px;
+        font-size: 1.125rem;
+      }
+    }
+    .property-info-container {
+      @include flexDisplay($direction: column);
+      @include resize($w: 100%);
+      gap: 30px;
+
+      .property-header-group {
+        @include flexDisplay($direction: row, $justify: space-between, $align: flex-start, $wrap: wrap);
+        width: 100%;
+      }
+
+      .property-subheader {
+        @include flexDisplay($direction: row, $justify: space-between, $align: center, $wrap: wrap);
+        @include resize($w: 100%);
+        gap: 20px;
+      }
+    }
+    //Property Title
+    .property-pg-title {
+      @include flexDisplay($direction: column, $align: flex-start,);
+      gap: 10px;
+      font-size: 1rem;
+
+      h3 {
+        margin: 0;
+        font-size: 2.25rem;
+        font-weight: 500;
+        color: $primary-kasacolor;
+      }
+      span {
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: black;
+      }
+    }
+    //Property Host
+    .property-host {
+      @include flexDisplay($align: center);
+      gap: 10px;
+      font-weight: 500;
+      font-size: 1.125rem;
+      color: $primary-kasacolor;
+
+      .host-img{
+        @include resize($w: 64px, $h: 64px);
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    //Property Rating
+    .property-rating{
+      @include flexDisplay($align: center);
+      gap: 7px;
+
+      img {
+        @include resize($w: 24.75px, $h: 24, $maxW: 24.75px, $maxH:24px);
+      }
+    }
+    //Property Tags
+    .property-tags{
+      @include flexDisplay($direction: row, $wrap: wrap);
+      @include resize($w:100%, $maxW: 85%);
+      gap: 10px;
+
+      .tag{
+        @include resize($w: 100%, $h: 100%, $maxW: 115px, $maxH: 35px);
+        background-color: $primary-kasacolor;
+        color: $component-textcolor;
+        padding: 5px 15px;
+        border-radius: 10px;
+        font-size: 0.875rem;
+        font-weight: 700;
+      }
+    }
+
+    //Property Collapse
+    .property-details {
+      @include flexDisplay($direction: row, $justify: space-between, $align: flex-start);
+      @include resize($w: 100%, $maxW: 1240px);
+      //background-color: $primary-kasacolor;
+      border-radius: 10px;
+
+      gap: 20px;
+      .details{
+        background-color: $bg-color;
+        color: black;
+        @include resize($w: 98%);
+        ul{
+          list-style: none;
+        }
+      }
+        .collapse {
+          @include resize($w: 100%, $maxW: 50%);
+          @include flexDisplay($direction: column);
+          .collapse-header{
+            @include resize($w: 95%);
+            padding: 10px 15px;
+          }
+        }
+    }
 }

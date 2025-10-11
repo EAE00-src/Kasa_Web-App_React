@@ -1,5 +1,5 @@
-import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { propertyData } from '../../Data/kasa-data'
 
 import prevArrow from '../../assets/previous-arrow.svg'
@@ -15,8 +15,19 @@ function PropertyDetails(){
     //useParams will get the id from the route and find the property in the data source
     const {id} = useParams();
     const property = propertyData.find(p => p.id === id);
-
-    if(!property) return <p>Property not found!</p>;
+    //console.log(property);
+    const errNav = useNavigate();
+    //Redirect for invalid page IDs
+    useEffect(() => {
+        if(!property){
+            errNav('/*');
+        } 
+    }, [property, errNav]);
+    //Placing this if statement after the useEffect() prevents the data from being destructured
+        //prematurely and throwing a TypeError. Doing so before useEffect() will immediately return nothing
+        //and the useEffect won't redirect
+    if (!property) return null;
+    
 
     //destructured data objects from propertyData for readability
     const {title, location, description, pictures, host, rating, equipments, tags} = property;
@@ -65,40 +76,50 @@ function PropertyDetails(){
                     <img src={nextArrow} alt='Next image arrow' />
                 </button>
             </div>
-            <div className="property-pg-title">
-            <h3>{title}</h3>
-            <span>{location}</span>
-            </div>
-            <div className="property-host">
-                <span>{host.name}</span>
-                <img className="host-img" src={host.picture} />
-            </div>
-            <div className="property-rating">
-                {stars.map((star) =>(
-                    <img key={star} src={
-                        star <= parseInt(rating)
-                        ? activeStar : inactiveStar
-                    }
-                    alt={`Rated ${rating} out of 5 stars`}
-                    />
-                ))}
-            </div>
-            <div className="property-tags">
-                {tags.map((tag, idx) =>(
-                    /*A span is created for every tag element with the respective property id*/
-                    <span className='tag' key={idx}>{tag}</span>
-                ))}
-            </div>
-            <div className="details">
-                <Collapse label='Description' description={description} />
-                <Collapse label='Amenities' description={
-                    <ul>
-                        {equipments.map((item, index) =>(
-                            <li key={index}>{item}</li>
+            <div className="property-info-container">
+
+                <div className="property-header-group">
+                    <div className="property-pg-title">
+                        <h3>{title}</h3>
+                        <span>{location}</span>
+                    </div>
+                    <div className="property-host">
+                        <span>{host.name}</span>
+                        <img className="host-img" src={host.picture} />
+                    </div>
+                </div>
+
+                <div className="property-subheader">
+                    <div className="property-tags">
+                        {tags.map((tag, idx) =>(
+                            /*A span is created for every tag element with the respective property id*/
+                            <span className='tag' key={idx}>{tag}</span>
                         ))}
-                    </ul>
-                }
-                />
+                    </div>
+                    <div className="property-rating">
+                        {stars.map((star) =>(
+                            <img key={star} src={
+                                star <= parseInt(rating)
+                                ? activeStar : inactiveStar
+                            }
+                            alt={`Rated ${rating} out of 5 stars`}
+                            />
+                        ))}
+                    </div>
+
+                </div>
+
+                <div className="property-details">
+                    <Collapse label='Description' description={description} />
+                    <Collapse label='Amenities' description={
+                        <ul>
+                            {equipments.map((item, index) =>(
+                                <li key={index}>{item}</li>
+                            ))}
+                        </ul>
+                    }
+                    />
+                </div>
             </div>
 
         </section>

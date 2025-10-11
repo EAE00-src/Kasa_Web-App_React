@@ -9,10 +9,10 @@ function RentalCards({id, cover, title}){
         <Link to={`/rentals/${id}`} className="rental-link">
             <article className="rental-card">
                 <div className="property-cover">
-                    <img src={cover} alt={title} />
+                    <img src={cover} alt={title} loading="lazy" />
                 </div>
                 <div className="property-title">
-                    <span className="property-title">{title}</span>
+                    <span>{title}</span>
                 </div>
             </article>
         </Link>

@@ -6,10 +6,13 @@
 }
 body{
     @include flexDisplay($direction: column);
-    max-width: 1440px;
+    max-width: 100%;
     #root{
         @include flexDisplay($direction: column, $align: center);
         padding-top: 45px;
         gap: 50px;
+    }
+    footer{
+        width: 100%;
     }
 }
