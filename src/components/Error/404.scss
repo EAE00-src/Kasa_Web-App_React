@@ -3,13 +3,30 @@
 .error {
     @include flexDisplay($direction: column, $justify: space-evenly, $align: center);
     gap: 100px;
+    margin-bottom: 70px;
+
+    img{
+        @media(max-width: 425px){
+            @include resize($w: 53%, $h: 99px);
+        }
+    }
 
     p{
         @include flexDisplay($wrap: wrap,);
         color: $primary-kasacolor;
         font-size: 2.25rem;
+        font-weight: 500;
+            @media(max-width: 425px){
+                @include resize($w: 69.4%);
+                text-align: center;
+                font-size: 1.125rem;
+            }
     }
     a{
         color: black;
+        font-weight: 500;
+        @media(max-width: 425px){
+            font-size: 14px;
+        }
     }
 }

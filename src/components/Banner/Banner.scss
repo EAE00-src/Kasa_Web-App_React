@@ -3,11 +3,14 @@
 
 .banner{
     @include flexDisplay($align: center, $justify: center);
-    @include resize($w: 100%, $h: 223px, $maxW: 1240px, $maxH: 223px);
+    @include resize($w: 100%, $h: 100%, $maxW: 1240px, $maxH: 223px);
     border-radius: 25px;
     overflow: hidden;
     position: relative;
     color: $component-textcolor;
+    @media (max-width: 425px){
+        @include resize($maxH: 111px);
+    }
     
 
     //Overlay for darkening the bg-image without affecting the text
@@ -26,6 +29,10 @@
         z-index: 2;
         font-size: 3rem;
         font-weight: 700;
+        padding: 0.9375rem;
+        @media(max-width: 425px) {
+            font-size: 1.5rem;
+        }
     }
     
     

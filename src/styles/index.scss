@@ -6,12 +6,19 @@
 }
 body{
     @include flexDisplay($direction: column);
-    max-width: 100%;
+    @include resize($maxW: 100%, $w: 100%);
+    margin: 0px;
+
     #root{
         @include flexDisplay($direction: column, $align: center);
         padding-top: 45px;
         gap: 50px;
+        @media(max-width: 425px){
+            padding-top: 20px;
+            gap: 27px;
+        }
     }
+
     footer{
         width: 100%;
     }

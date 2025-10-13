@@ -3,12 +3,51 @@
 
 .about-body{
     @include flexDisplay($direction: column, $align: center);
-    @include resize($w: 100%, $maxW: 1240px);
+    @include resize($w: 86.15%, $maxW: 1240px);
     gap: 30px;
+        //mobile
+        @media(max-width: 425px){
+            @include resize($w: 89.5%);
+            gap: 19px;
+        }
 
     .about-values{
         @include flexDisplay($direction: column);
         @include resize($w: 100%, $maxW: 1240px);
         gap: 30px;
+
+        //laptop
+        @media(max-width: 1024px){
+            .collapse{
+                &.about-collapse{
+                    @include resize($w: 90%);
+                }
+            }
+        }
+        //tablet
+        @media(max-width: 768px){
+            .collapse{
+                &.about-collapse{
+                    @include resize($w: 95%);
+                }
+            }
+        }
+        //mobile
+        @media(max-width: 425px){
+            .collapse{
+                &.about-collapse{
+                    @include resize($w: 100%);
+                }
+            }   
+        }
+
+    }
+    .about-banner{
+        @include resize($w: 100%, $h: 223px);
+
+            //mobile
+            @media(max-width: 425px){
+                @include resize($h: 111px);
+            }
     }
 }

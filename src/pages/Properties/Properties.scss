@@ -8,6 +8,20 @@
   margin: auto;
   padding-top: 45px;
   gap: 50px;
+    //laptop
+    @media(max-width: 1024px){
+      @include resize($w: 89.5%);
+    }
+    //tablet
+    @media(max-width: 768px){
+      @include resize($w: 89.5%);
+      padding-top: 20px;
+      gap: 27px;
+    }
+    //mobile
+    @media(max-width: 425px){
+      @include resize($w: 89.5%);
+    }
     //Property Carousel
     .property-carousel {
       position: relative;
@@ -65,38 +79,57 @@
         font-size: 1.125rem;
       }
     }
+    //Property wrapper for content sections (header & subheader wrapper)
     .property-info-container {
       @include flexDisplay($direction: column);
       @include resize($w: 100%);
-      gap: 30px;
+      gap: 25px;
 
       .property-header-group {
         @include flexDisplay($direction: row, $justify: space-between, $align: flex-start, $wrap: wrap);
         width: 100%;
+        gap: 15px;
+          @media(max-width: 768px){
+            @include flexDisplay($direction: column, $align: normal);
+          }
+          @media(max-width: 425px) {
+            gap: 15px;
+          }
+
       }
 
       .property-subheader {
         @include flexDisplay($direction: row, $justify: space-between, $align: center, $wrap: wrap);
         @include resize($w: 100%);
-        gap: 20px;
+        gap: 15px;
+          //mobile
+          @media(max-width: 425px){
+            @include flexDisplay($direction:column, $align: flex-start);
+            gap: 15px;
+          }
       }
     }
     //Property Title
     .property-pg-title {
       @include flexDisplay($direction: column, $align: flex-start,);
       gap: 10px;
-      font-size: 1rem;
 
       h3 {
         margin: 0;
         font-size: 2.25rem;
         font-weight: 500;
         color: $primary-kasacolor;
+        @media(max-width: 425px){
+          font-size: 1.125rem;
+        }
       }
       span {
         font-size: 1.125rem;
         font-weight: 500;
         color: black;
+        @media(max-width: 425px){
+          font-size: 0.875rem;
+        }
       }
     }
     //Property Host
@@ -106,17 +139,39 @@
       font-weight: 500;
       font-size: 1.125rem;
       color: $primary-kasacolor;
+        @media(max-width: 768px){
+          @include flexDisplay($justify: right);
+        }
+
+        //mobile
+        @media(max-width: 425px){
+            font-size: 12px;
+            gap: 10px;
+            width: 100%;
+        }
 
       .host-img{
         @include resize($w: 64px, $h: 64px);
         object-fit: cover;
         border-radius: 50%;
+        //mobile
+        @media(max-width: 425px){
+          @include resize($w: 32px, $h:32px);
+        }
       }
     }
+
+    //Property-subheader group (rating & tags)
+
     //Property Rating
     .property-rating{
       @include flexDisplay($align: center);
       gap: 7px;
+        @media(max-width: 425px){
+          @include flexDisplay($direction: row, $align: center);
+          justify-content: flex-start;
+        }
+
 
       img {
         @include resize($w: 24.75px, $h: 24, $maxW: 24.75px, $maxH:24px);
@@ -125,8 +180,13 @@
     //Property Tags
     .property-tags{
       @include flexDisplay($direction: row, $wrap: wrap);
-      @include resize($w:100%, $maxW: 85%);
+      @include resize($w:100%, $maxW: 75%);
       gap: 10px;
+
+      //mobile
+      @media(max-width: 768px){
+        @include resize($maxW: 100%);
+      }
 
       .tag{
         @include resize($w: 100%, $h: 100%, $maxW: 115px, $maxH: 35px);
@@ -136,6 +196,18 @@
         border-radius: 10px;
         font-size: 0.875rem;
         font-weight: 700;
+          @media(max-width: 425px){
+            @include resize($maxW: 90px);
+          }
+      }
+    }
+
+    .host-rating-wrap{
+      @include flexDisplay($direction: column);
+      gap: 15px;
+      @media(max-width:768px){
+        @include resize($w: 100%);
+        @include flexDisplay($direction: row-reverse, $align: center, $justify: space-between);
       }
     }
 
@@ -145,12 +217,21 @@
       @include resize($w: 100%, $maxW: 1240px);
       //background-color: $primary-kasacolor;
       border-radius: 10px;
+        //mobile
+        @media(max-width: 425px){
+          @include flexDisplay($direction: column);
+        }
 
       gap: 20px;
       .details{
         background-color: $bg-color;
         color: black;
-        @include resize($w: 98%);
+        @include resize($w: 94%);
+          //mobile
+          @media (max-width: 425px){
+            @include resize($w: 93%);
+            font-size: 12px;
+          }
         ul{
           list-style: none;
         }
@@ -158,6 +239,10 @@
         .collapse {
           @include resize($w: 100%, $maxW: 50%);
           @include flexDisplay($direction: column);
+          //mobile
+            @media(max-width: 425px){
+              @include resize($maxW: 100%);
+            }
           .collapse-header{
             @include resize($w: 95%);
             padding: 10px 15px;

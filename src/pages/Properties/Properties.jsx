@@ -79,34 +79,35 @@ function PropertyDetails(){
             <div className="property-info-container">
 
                 <div className="property-header-group">
-                    <div className="property-pg-title">
-                        <h3>{title}</h3>
-                        <span>{location}</span>
-                    </div>
-                    <div className="property-host">
-                        <span>{host.name}</span>
-                        <img className="host-img" src={host.picture} />
-                    </div>
-                </div>
+                        <div className="property-pg-title">
+                            <h3>{title}</h3>
+                            <span>{location}</span>
+                        </div>
 
-                <div className="property-subheader">
-                    <div className="property-tags">
-                        {tags.map((tag, idx) =>(
-                            /*A span is created for every tag element with the respective property id*/
-                            <span className='tag' key={idx}>{tag}</span>
-                        ))}
+                        <div className="property-subheader">
+                            <div className="property-tags">
+                                {tags.map((tag, idx) =>(
+                                    /*A span is created for every tag element with the respective property id*/
+                                    <span className='tag' key={idx}>{tag}</span>
+                                ))}
+                            </div>
+                        <div className="host-rating-wrap">
+                            <div className="property-host">
+                                <span>{host.name}</span>
+                                <img className="host-img" src={host.picture} />
+                            </div>
+                            <div className="property-rating">
+                                {stars.map((star) =>(
+                                    <img key={star} src={
+                                        star <= parseInt(rating)
+                                        ? activeStar : inactiveStar
+                                    }
+                                    alt={`Rated ${rating} out of 5 stars`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     </div>
-                    <div className="property-rating">
-                        {stars.map((star) =>(
-                            <img key={star} src={
-                                star <= parseInt(rating)
-                                ? activeStar : inactiveStar
-                            }
-                            alt={`Rated ${rating} out of 5 stars`}
-                            />
-                        ))}
-                    </div>
-
                 </div>
 
                 <div className="property-details">

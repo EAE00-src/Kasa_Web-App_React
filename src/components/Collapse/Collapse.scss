@@ -12,6 +12,7 @@
   margin: 0 auto;
   overflow: hidden;
   transition: all 0.3s ease;
+  
 
   // Header (top bar)
   .collapse-header {
@@ -47,7 +48,8 @@
   // Dropdown content (when open)
   .details {
     padding: 15px;
-    font-size: 1rem;
+    font-size: 1.125rem;
+    font-weight: 400;
     line-height: 1.5;
     background-color: $bg-color;
     color: black;
