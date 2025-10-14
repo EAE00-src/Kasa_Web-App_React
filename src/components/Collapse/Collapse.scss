@@ -55,6 +55,9 @@
     background-color: $bg-color;
     color: black;
     animation: fadeIn 0.5s ease;
+    @media (max-width: 425px){
+      font-size: 12px;
+    }
   }
 }
 
