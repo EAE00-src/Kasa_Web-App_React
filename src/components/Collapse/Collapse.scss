@@ -32,16 +32,18 @@
       background: none;
       border: none;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease;
+
+      transform: rotate(0deg);
+      &.open{
+        transform: rotate(180deg);
+      }
 
       img {
         @include resize($w: 20px, $h: auto);
-        transform: rotate(0deg);
+        //transform: rotate(0deg);
       }
 
-      &.open img {
-        transform: rotate(180deg);
-      }
     }
   }
 
@@ -53,7 +55,7 @@
     line-height: 1.5;
     background-color: $bg-color;
     color: black;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.7s ease;
   }
 }
 
@@ -61,7 +63,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-5px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;

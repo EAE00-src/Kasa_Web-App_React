@@ -26,6 +26,9 @@
     .property-carousel {
       position: relative;
       @include resize($w: 100%, $h: 415px);
+        @media(max-width: 425px){
+          @include resize($h: 255px);
+        }
 
       .carousel-wrapper {
         @include resize($w: 100%, $h: 100%);
@@ -226,7 +229,7 @@
       .details{
         background-color: $bg-color;
         color: black;
-        @include resize($w: 94%);
+        @include resize($w: 96%);
           //mobile
           @media (max-width: 425px){
             @include resize($w: 93%);
