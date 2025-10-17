@@ -225,10 +225,9 @@
           @include flexDisplay($direction: column);
         }
 
-      gap: 20px;
+      gap: 15px;
       .details{
-        background-color: $bg-color;
-        color: black;
+
         @include resize($w: 96%);
           //mobile
           @media (max-width: 425px){

@@ -23,11 +23,11 @@ function Collapse({label, description}){
                     <img src={collapseArrow} alt='Dropdown arrow' />
                     </button>
             </div>
-            {isOpen && (
-                <div className='details'>
+
+                <div className={`details ${isOpen ? 'open' : ''}`}>
                     {description}
                 </div>
-            )}
+
 
         </div>
     );
